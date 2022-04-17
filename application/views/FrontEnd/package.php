@@ -57,7 +57,7 @@
   <div class="card-body">
     <center><h5 class="card-title"><?php echo $p->package_name ?></h5></center>
     <p class="card-text"><?php echo $descri ?></p>
-    <center>
+    <!-- <center>
       <details>
   <summary style="color:green">See Detail's.</summary>
   <p> -Package Price: <span style="color: #007bff;font-weight: bold"> <?php echo $p->price ?></span></p>
@@ -65,7 +65,7 @@
   <p> -Lunch :<span style="color: #007bff;font-weight: bold">Free</span></p>
   <p> -Internet :<span style="color: #007bff;font-weight: bold">Free</span></p>
 </details>
-    </center>
+    </center> -->
     <center>
       
     <a style="margin-top: 20px;margin-bottom: 10px" href="<?php 

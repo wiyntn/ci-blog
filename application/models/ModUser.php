@@ -18,6 +18,13 @@ class ModUser extends CI_Model
         return $this->db->insert('tbl_guide', $data);
     }
 
+   public function permitlogin($data)
+   {
+      $this->load->database();
+      $this->db;
+      return $this->db->get_where('tbl_guide', $data)->result_array();
+   }
+
     public function chkUserRegister($data)
     {
         $this->db->select('id');

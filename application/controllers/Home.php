@@ -50,15 +50,15 @@ class Home extends CI_Controller
 
 
 
-    public function guide()
-    {
-        $data['allPlace'] = $this->modAdmin->fetchallPlace();
-        $data['allGuide'] = $this->modAdmin->fetchallGuide();
-        $this->load->view('FrontEnd/header');
-        $this->load->view('FrontEnd/navbar1');
-        $this->load->view('FrontEnd/guide', $data);
-        $this->load->view('FrontEnd/footer');
-    }
+    // public function guide()
+    // {
+    //     $data['allPlace'] = $this->modAdmin->fetchallPlace();
+    //     $data['allGuide'] = $this->modAdmin->fetchallGuide();
+    //     $this->load->view('FrontEnd/header');
+    //     $this->load->view('FrontEnd/navbar1');
+    //     $this->load->view('FrontEnd/guide', $data);
+    //     $this->load->view('FrontEnd/footer');
+    // }
 
     public function signin()
     {
@@ -68,6 +68,16 @@ class Home extends CI_Controller
         $this->load->view('FrontEnd/signin');
         $this->load->view('FrontEnd/footer', $data);
     }
+
+    // public function guidesignin()
+	// {
+	// 	$data['allPlace'] = $this->modAdmin->fetchallPlace();
+	// 	$data['allLocation'] = $this->modAdmin->fetchallLocation();
+	// 	$this->load->view('FrontEnd/header');
+	// 	$this->load->view('FrontEnd/navbar1');
+	// 	$this->load->view('FrontEnd/guidesignin', $data);
+	// 	$this->load->view('FrontEnd/footer');
+	// }
 
     public function UserRegister()
     {
@@ -193,4 +203,60 @@ class Home extends CI_Controller
             }
         }
     }
+
+    public function login()
+	{
+		$data['user_name'] = $this->input->post('user_name', true);
+		$data['password'] = $this->input->post('password', true);
+		if (!empty($data['user_name']) && !empty($data['password'])) {
+			$permitlogin = $this->modUser->permitlogin($data);
+			if (count($permitlogin) == 1) {
+
+				$forSession = array(
+
+					'name' => $permitlogin[0]['user_name'],
+					'Guide_id' => $permitlogin[0]['id'],
+
+					'logged_in' => TRUE,
+					'User_type' => TRUE
+
+				);
+
+				$this->session->set_userdata($forSession);
+				if ($this->session->userdata('User_type')) {
+
+					redirect('home');
+				} else {
+					echo "Session not Created";
+				}
+			} else {
+				$this->session->set_flashdata('clas', 'alert-danger');
+				$this->session->set_flashdata('msg', 'login');
+				$this->session->set_flashdata('message', 'Sorry,U Can not Login');
+				redirect('Home/guidesignin');
+			}
+		}
+	}
+
+    public function logout()
+	{
+
+		if ($this->session->userdata('User_type')) {
+			$this->session->unset_userdata('User_type', '');
+			$this->session->unset_userdata('name', '');
+			$this->session->unset_userdata('id', '');
+			$this->session->unset_userdata('Guide_id', '');
+			$this->session->unset_userdata('logged_in', '');
+
+			redirect('home');
+		} elseif ($this->session->userdata('id')) {
+
+			$this->session->unset_userdata('User_type', '');
+			$this->session->unset_userdata('name', '');
+			$this->session->unset_userdata('id', '');
+			$this->session->unset_userdata('Guide_id', '');
+			$this->session->unset_userdata('logged_in', '');
+			redirect('home');
+		}
+	}
 }

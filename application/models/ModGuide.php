@@ -1,6 +1,6 @@
 <?php 
 
-     class ModAdmin extends CI_Model{
+     class ModGuide extends CI_Model{
 
      	public function chkAdmin($data){
 	      $this->load->database();
@@ -54,11 +54,6 @@
              return $data;
          }
          return false;
-      }
-
-      public function deleteLanguage($id){
-         $this->db->where('id',$id);
-         return $this->db->delete('tbl_place');
       }
       public function deleteUser($id){
          $this->db->where('id',$id);

@@ -31,31 +31,38 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('home/about') ?>">about</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/guide') ?>">Guide</a></< /li>
-            <?php if ($this->session->userdata('id')) {
+          <!-- <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/guide') ?>">Guide</a></li> -->
+            <?php if ($this->session->userdata('id')) { ?>
 
-            ?><div class="dropdown">
-                <button class="dropbtn"><i style="font-size: 20px" class="fa fa-user-circle"></i>
-
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                  <a class="nav-link" style="" href="<?php echo base_url('home/logout') ?>">Logout</a>
-
-                </div>
-              <?php } elseif ($this->session->userdata('User_type')) { ?>
-                <div class="dropdown">
-                  <button class="dropbtn"><i style="font-size: 20px" class="fa fa-user-circle"></i>
-                    <i class="fa fa-caret-down"></i>
+              <div class="d-flex">
+                <div class="dropdown mr-1">
+                  <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                    Offset
                   </button>
-                  <div class="dropdown-content">
-                    <a class="nav-link" style="" href="<?php echo base_url('home/logout') ?>">Logout</a>
-
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
                   </div>
-                <?php } else { ?>
-          <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/signin') ?>">Signin/Register</a></li>
-        <?php } ?>
-      
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-secondary">Reference</button>
+                  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                  </div>
+                </div>
+              </div>
+
+              <?php } ?>
+              
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -66,37 +73,19 @@
 
     <!-- Menu -->
 
-    <div class="menu">
-      <div class="menu_header d-flex flex-row align-items-center justify-content-start">
-        <div class="menu_logo"><a href="index.html">Travello</a></div>
-        <div class="menu_close_container ml-auto">
-          <div class="menu_close">
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-      <div class="menu_content">
-        <ul>
-          <li><a href="inex.html">Home</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="menu_social">
-        <div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
-        <ul class="d-flex flex-row align-items-start justify-content-start">
-          <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-        </ul>
-      </div>
-      <!-- <style type="text/css">
+
+    <div class="menu_social">
+      <div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
+      <ul class="d-flex flex-row align-items-start justify-content-start">
+        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+    <!-- <style type="text/css">
       .dropdown .dropbtn {
         font-size: 16px;
         border: none;
